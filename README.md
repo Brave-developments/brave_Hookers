@@ -1,7 +1,8 @@
 Installation 
 
 Download the resource and unzip it in your resources directory.
-Add ensure hooker to your server.cfg.
+
+Add ensure brave-hooker to your server.cfg.
 
 ***Move the mysound.ogg file to the standalone/client/html/sounds directory within the resource structure.***
 
