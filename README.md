@@ -7,7 +7,7 @@ Add ensure brave-hooker to your server.cfg.
 ***Move the mysound.ogg file to the standalone/client/html/sounds directory within the resource structure.***
 
 * Compatible with QBCore Framework
-* Preview 
+* Preview https://youtu.be/B6wSxh2hGC0
 
 # Dependencies
 * [ps-dispatch](https://github.com/Project-Sloth/ps-dispatch) - Optional
