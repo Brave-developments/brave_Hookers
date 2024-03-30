@@ -4,7 +4,7 @@ Download the resource and unzip it in your resources directory.
 
 Add ensure brave-hooker to your server.cfg.
 
-***Move the mysound.ogg file to the standalone/client/html/sounds directory within the resource structure.***
+***Move the mysound.ogg file to the standalone/interact-sound/client/html/sounds directory within the resource structure.***
 
 * Compatible with QBCore Framework
 * Preview https://youtu.be/B6wSxh2hGC0
