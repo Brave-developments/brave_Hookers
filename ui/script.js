@@ -1,0 +1,102 @@
+const Brave_hookers = new Vue({
+    el: "#Brave_hookers",
+
+    data: {
+        // Shared
+        ResourceName: "Brave_hookers",
+        showHookersSelector: false,
+        showPimpSelector: false,
+        blowjob: null,
+        sex: null,
+
+    },
+
+    methods: {
+
+        // START OF MAIN MENU
+        OpenPimpMenu() {
+            this.showPimpSelector       = true;
+            this.showHookersSelector    = false;
+
+        },
+
+        OpenHookersMenu(blowjob, sex) {
+            this.showHookersSelector    = true;
+            this.showPimpSelector       = false;
+            this.blowjob                = blowjob;
+            this.sex                    = sex;
+
+        },
+
+        CloseHookersMenu() {
+            axios.post(`http://${this.ResourceName}/CloseMenu`, {}).then((response) => {
+                this.showHookersSelector    = false;
+                this.showPimpSelector       = false;
+            }).catch((error) => { });
+        },
+
+        ChooseMolly() {
+            axios.post(`http://${this.ResourceName}/ChooseMolly`, {}).then((response) => {
+                this.showHookersSelector    = false;
+                this.showPimpSelector       = false;
+            }).catch((error) => { });
+        },
+
+        ChooseLiza() {
+            axios.post(`http://${this.ResourceName}/ChooseLiza`, {}).then((response) => {
+                this.showHookersSelector    = false;
+                this.showPimpSelector       = false;
+            }).catch((error) => { });
+        },
+
+        ChooseJessica() {
+            axios.post(`http://${this.ResourceName}/ChooseJessica`, {}).then((response) => {
+                this.showHookersSelector    = false;
+                this.showPimpSelector       = false;
+            }).catch((error) => { });
+        },
+
+        ChooseKara() {
+            axios.post(`http://${this.ResourceName}/ChooseKara`, {}).then((response) => {
+                this.showHookersSelector    = false;
+                this.showPimpSelector       = false;
+            }).catch((error) => { });
+        },
+
+        ChooseBlowjob() {
+            axios.post(`http://${this.ResourceName}/ChooseBlowjob`, {}).then((response) => {
+                this.showHookersSelector    = false;
+                this.showPimpSelector       = false;
+            }).catch((error) => { });
+        },
+
+        ChooseSex() {
+            axios.post(`http://${this.ResourceName}/ChooseSex`, {}).then((response) => {
+                this.showHookersSelector    = false;
+                this.showPimpSelector       = false;
+            }).catch((error) => { });
+        },
+
+        CloseServiceMenu() {
+            axios.post(`http://${this.ResourceName}/CloseServiceMenu`, {}).then((response) => {
+                this.showHookersSelector    = false;
+                this.showPimpSelector       = false;
+            }).catch((error) => { });
+        },
+
+
+    },
+});
+
+// Listener from Lua CL
+document.onreadystatechange = () => {
+    if (document.readyState == "complete") {
+        window.addEventListener("message", (event) => {
+            if (event.data.type == "openPimpMenu") {
+                Brave_hookers.OpenPimpMenu(event.data.blowjob, event.data.sex);
+            } else if (event.data.type == "openHookerMenu") {
+                Brave_hookers.OpenHookersMenu(event.data.blowjob, event.data.sex);
+            }
+        });
+    }
+}
