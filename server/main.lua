@@ -19,7 +19,7 @@ local function RelieveStress(src, amount)
     triggerNotify(src, 'You feel more relaxed', 'success')
 end
 
-RegisterServerEvent('mrf_hookers:startBlowjob', function()
+RegisterServerEvent('brave-Hookers:startBlowjob', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local Cash = Player.PlayerData.money.cash
@@ -27,15 +27,15 @@ RegisterServerEvent('mrf_hookers:startBlowjob', function()
 
     if Cash >= Price then
         Player.Functions.RemoveMoney('cash', Price)
-        TriggerClientEvent('mrf_hookers:startBlowjobAnim', source)
+        TriggerClientEvent('brave-Hookers:startBlowjobAnim', source)
         RelieveStress(src, math.random(10, 30))
     else
         triggerNotify(src, 'You do not have enough money', 'error')
-        TriggerClientEvent('mrf_hookers:noMoney', src)
+        TriggerClientEvent('brave-Hookers:noMoney', src)
     end
 end)
 
-RegisterServerEvent('mrf_hookers:startSex', function()
+RegisterServerEvent('brave-Hookers:startSex', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local Cash = Player.PlayerData.money.cash
@@ -43,11 +43,11 @@ RegisterServerEvent('mrf_hookers:startSex', function()
 
     if Cash >= Price then
         Player.Functions.RemoveMoney('cash', Price)
-        TriggerClientEvent('mrf_hookers:startSexAnim', source)
+        TriggerClientEvent('brave-Hookers:startSexAnim', source)
         RelieveStress(src, math.random(20, 50))
     else
         triggerNotify(src, 'You do not have enough money', 'error')
-        TriggerClientEvent('mrf_hookers:noMoney', src)
+        TriggerClientEvent('brave-Hookers:noMoney', src)
     end
 end)
 
