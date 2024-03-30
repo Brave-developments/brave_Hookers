@@ -4,7 +4,7 @@ local OnRouteToHooker = false
 local HookerInCar = false
 
 -- NUI EVENTS
-RegisterNetEvent("mrf_hookers:OpenPimpMenu", function()
+RegisterNetEvent("brave-Hookers:OpenPimpMenu", function()
     SetNuiFocus(true, true)
     lookEnt(pimp)
     Wait(100)
@@ -13,7 +13,7 @@ RegisterNetEvent("mrf_hookers:OpenPimpMenu", function()
     })
 end)
 
-RegisterNetEvent("mrf_hookers:OpenHookerMenu", function()
+RegisterNetEvent("brave-Hookers:OpenHookerMenu", function()
     SetNuiFocus(true, true)
     Wait(100)
     SendNUIMessage({
@@ -35,7 +35,7 @@ RegisterNUICallback("ChooseMolly", function(data, cb)
     if HookerSpawned then
         triggerNotify('You have already choose a hooker!', 'error')
     else
-        TriggerEvent("mrf_hookers:ChooseHooker", "csb_stripper_01")
+        TriggerEvent("brave-Hookers:ChooseHooker", "csb_stripper_01")
         triggerNotify('Molly Is Marked On Your GPS, Go & Fuck Her!', 'success')
     end
     OnRouteToHooker = true
@@ -47,7 +47,7 @@ RegisterNUICallback("ChooseLiza", function(data, cb)
     if HookerSpawned then
         triggerNotify('You have already choose a hooker!', 'error')
     else
-        TriggerEvent("mrf_hookers:ChooseHooker", "csb_stripper_02")
+        TriggerEvent("brave-Hookers:ChooseHooker", "csb_stripper_02")
         triggerNotify('Liza Is Marked On Your GPS, Go & Fuck Her!', 'success')
     end
     OnRouteToHooker = true
@@ -59,7 +59,7 @@ RegisterNUICallback("ChooseJessica", function(data, cb)
     if HookerSpawned then
         triggerNotify('You have already choose a hooker!', 'error')
     else
-        TriggerEvent("mrf_hookers:ChooseHooker", "s_f_y_stripper_01")
+        TriggerEvent("brave-Hookers:ChooseHooker", "s_f_y_stripper_01")
         triggerNotify('Jessica Is Marked On Your GPS, Go & Fuck Her!', 'success')
     end
     OnRouteToHooker = true
@@ -71,7 +71,7 @@ RegisterNUICallback("ChooseKara", function(data, cb)
     if HookerSpawned then
         triggerNotify('You have already choose a hooker!', 'error')
     else
-        TriggerEvent("mrf_hookers:ChooseHooker", "s_f_y_stripper_02")
+        TriggerEvent("brave-Hookers:ChooseHooker", "s_f_y_stripper_02")
         triggerNotify('Kara Is Marked On Your GPS, Go & Fuck Her!', 'success')
     end
     OnRouteToHooker = true
@@ -81,7 +81,7 @@ RegisterNUICallback("ChooseBlowjob", function(data, cb)
     SetNuiFocus(false, false)
     cb("ok")
     HookerInCar = false
-    TriggerServerEvent("mrf_hookers:startBlowjob")
+    TriggerServerEvent("brave-Hookers:startBlowjob")
     if Config.Dispatch.Enable then
         if math.random(1, 100) >= 10 then
             exports[Config.Dispatch.Resource]:SuspiciousActivity()
@@ -93,7 +93,7 @@ RegisterNUICallback("ChooseSex", function(data, cb)
     SetNuiFocus(false, false)
     cb("ok")
     HookerInCar = false
-    TriggerServerEvent("mrf_hookers:startSex")
+    TriggerServerEvent("brave-Hookers:startSex")
     if Config.Dispatch.Enable then
         if math.random(1, 100) >= 10 then
             exports[Config.Dispatch.Resource]:SuspiciousActivity()
@@ -108,7 +108,7 @@ RegisterNUICallback("CloseServiceMenu", function(data, cb)
 end)
 
 -- No Money 
-RegisterNetEvent("mrf_hookers:noMoney", function()
+RegisterNetEvent("brave-Hookers:noMoney", function()
     HookerInCar = true
 end)
 
@@ -128,7 +128,7 @@ CreateThread(function()
             options = {
                 {
                     type = "client",
-                    event = "mrf_hookers:OpenPimpMenu",
+                    event = "brave-Hookers:OpenPimpMenu",
                 	icon = "fa-solid fa-money-bill",
                 	label = "Talk to Pimp",
                 },
@@ -139,7 +139,7 @@ CreateThread(function()
 end)
 
 -- Thread after ordered hooker 
-RegisterNetEvent("mrf_hookers:ChooseHooker", function(model)
+RegisterNetEvent("brave-Hookers:ChooseHooker", function(model)
     HookerSpawned = true
     spawn = math.random(1, 12)
     CreateHooker(model, spawn)
@@ -177,7 +177,7 @@ RegisterNetEvent("mrf_hookers:ChooseHooker", function(model)
                             InteractText('[E] To Open Services | [H] Tell Hooker To Leave')
                             if IsControlJustPressed(0, 38) then
                                 PlayAmbientSpeech1(Hooker, "Hooker_Offer_Service", "Speech_Params_Force_Shouted_Clear")
-                                TriggerEvent("mrf_hookers:OpenHookerMenu")
+                                TriggerEvent("brave-Hookers:OpenHookerMenu")
                             end
                             if IsControlJustPressed(0, 74) then
                                 HookerInCar = false
@@ -208,7 +208,7 @@ RegisterNetEvent("mrf_hookers:ChooseHooker", function(model)
     end)
 end)
 
-RegisterNetEvent("mrf_hookers:startBlowjobAnim", function()
+RegisterNetEvent("brave-Hookers:startBlowjobAnim", function()
     local ped = cache.ped
     local vehicle = cache.vehicle
     hookerAnim(Hooker, "oddjobs@towing", "f_blow_job_loop")
@@ -242,7 +242,7 @@ end)
 
 
 -- Sex Animation and Speech
-RegisterNetEvent("mrf_hookers:startSexAnim", function()
+RegisterNetEvent("brave-Hookers:startSexAnim", function()
     local ped = cache.ped
     hookerAnim(Hooker, "mini@prostitutes@sexlow_veh", "low_car_sex_loop_female")
     playerAnim(ped, "mini@prostitutes@sexlow_veh", "low_car_sex_loop_player")
