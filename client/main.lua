@@ -278,7 +278,8 @@ AddEventHandler('onResourceStop', function(r)
         return
     end
 	for k in pairs(Targets) do
-        exports[Config.Target]:RemoveZone(k)
+        exports[Config.Target]:RemoveTargetEntity(pimp, 'Talk to Pimp')
+    if DoesEntityExist(pimp) then DeleteEntity(pimp) end
     end
     unloadModel(Hooker)
 end)
