@@ -4,4 +4,4 @@
 
 ### Fixed
 - Server-side triggerNotify calls now pass (message, type, src) instead of (src, message, type).
-- onResourceStop removes the pomp-target entity correctly and deletes the pimp ped instead of calling RemoveZone on an entity key.
+- onResourceStop removes the pimp target entity correctly and deletes the pimp ped instead of calling RemoveZone on an entity key.
