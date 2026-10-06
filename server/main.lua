@@ -16,7 +16,7 @@ local function RelieveStress(src, amount)
 
     Player.Functions.SetMetaData('stress', Stress)
     TriggerClientEvent('hud:client:UpdateStress', src, Stress)
-    triggerNotify(src, 'You feel more relaxed', 'success')
+    triggerNotify('You feel more relaxed', 'success', src)
 end
 
 RegisterServerEvent('brave-Hookers:startBlowjob', function()
@@ -30,7 +30,7 @@ RegisterServerEvent('brave-Hookers:startBlowjob', function()
         TriggerClientEvent('brave-Hookers:startBlowjobAnim', source)
         RelieveStress(src, math.random(10, 30))
     else
-        triggerNotify(src, 'You do not have enough money', 'error')
+        triggerNotify('You do not have enough money', 'error', src)
         TriggerClientEvent('brave-Hookers:noMoney', src)
     end
 end)
@@ -46,7 +46,7 @@ RegisterServerEvent('brave-Hookers:startSex', function()
         TriggerClientEvent('brave-Hookers:startSexAnim', source)
         RelieveStress(src, math.random(20, 50))
     else
-        triggerNotify(src, 'You do not have enough money', 'error')
+        triggerNotify('You do not have enough money', 'error', src)
         TriggerClientEvent('brave-Hookers:noMoney', src)
     end
 end)
