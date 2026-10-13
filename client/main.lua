@@ -277,9 +277,11 @@ AddEventHandler('onResourceStop', function(r)
     if r ~= GetCurrentResourceName() then
         return
     end
-	for k in pairs(Targets) do
+    -- The interaction belongs to the spawned pimp entity, not a named zone.
+    -- Guard missing/unspawned entities and clean up only once.
+    if pimp and DoesEntityExist(pimp) then
         exports[Config.Target]:RemoveTargetEntity(pimp, 'Talk to Pimp')
-    if DoesEntityExist(pimp) then DeleteEntity(pimp) end
+        DeleteEntity(pimp)
     end
     unloadModel(Hooker)
 end)
